@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 
-const TeamMemberForm = props => {
+const Form = props => {
   // console.log("this is our props", props);
   const [member, setMember] = useState({
-    title: "",
-    body: ""
+    name: "",
+    role: "",
+    email: ""
   });
 
   const handleChanges = event => {
-    setNote({ ...note, [event.target.name]: event.target.value });
-    // console.log(note);
+    setMember({ ...member, [event.target.name]: event.target.value });
+    // console.log(team);
   };
 
   const submitHandler = event => {
     event.preventDefault();
-    const newNote = {
-      ...note,
+    const newMember= {
+      ...member,
       id: Date.now()
     };
-    props.addNewNote(newNote);
-    console.log(newNote);
+    props.addNewMember(newMember);
+    console.log(newMember);
     // console.log(event.target.title);
-    setNote({ title: "", body: "" });
+    setMember({ name: "", role: "", email: "" });
 
     // this is done better in the value={note.key} in the input tags
     // event.target.title.value = "";
@@ -33,23 +34,32 @@ const TeamMemberForm = props => {
     // from tags inside of that form tag
     <div>
       <form onSubmit={submitHandler}>
-        <h1>{note.title}</h1>
-        <label htmlFor="title">Note Title</label>
+        <h1>{member.name}</h1>
+        <label htmlFor="name">Member Name</label>
         <input
           onChange={handleChanges}
-          id="title"
+          id="name"
           type="text"
           name="title"
-          value={note.title}
+          value={member.name}
         />
 
-        <label htmlFor="body">Note Body</label>
+        <label htmlFor="role">Member Role</label>
         <textarea
           onChange={handleChanges}
-          id="body"
+          id="role"
           type="text"
           name="body"
-          value={note.body}
+          value={member.role}
+        />
+
+        <label htmlFor="email">Member Email</label>
+        <textarea
+          onChange={handleChanges}
+          id="email"
+          type="text"
+          name="body"
+          value={member.email}
         />
 
         <button type="submit">Submit</button>
@@ -58,4 +68,4 @@ const TeamMemberForm = props => {
   );
 };
 
-export default NoteForm;
+export default Form;
