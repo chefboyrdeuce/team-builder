@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState }from 'react';
+import ReactDOM from 'react-dom';
+import Members from './Members';
+import './index.css';
+import Form from './Form';
 import './App.css';
 
 function App() {
+  const [ members, setMembers ] = useState([
+      {
+      id: 1,
+      name: "Bobby Boucher",
+      role: "Water Distribution Engineer",
+      email: "itsme@bobbyboucher.com"
+      }
+  ]);
+
+  const addNewMember = member => {
+      const newMember = setMembers([...members, member]);
+      // make a new array that contains all the values of notes + newNote
+      // ...notes === notes1, notes2, notes3
+    };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="App">
+        <h1>Team Members</h1>
+        <Form addNewMember={addNewMember} />
+        <Members members={members} />
+      </div>
+    );
 }
 
 export default App;

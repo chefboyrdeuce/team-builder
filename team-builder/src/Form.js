@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Form = props => {
   // console.log("this is our props", props);
@@ -40,7 +40,7 @@ const Form = props => {
           onChange={handleChanges}
           id="name"
           type="text"
-          name="title"
+          name="name"
           value={member.name}
         />
 
@@ -49,7 +49,7 @@ const Form = props => {
           onChange={handleChanges}
           id="role"
           type="text"
-          name="body"
+          name="role"
           value={member.role}
         />
 
@@ -58,7 +58,7 @@ const Form = props => {
           onChange={handleChanges}
           id="email"
           type="text"
-          name="body"
+          name="email"
           value={member.email}
         />
 
